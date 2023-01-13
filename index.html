@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Simulacion de algoritmos de planificacion de procesos</title>
+</head>
+<body>
+
+    <h3 class="title">Algortimos de planificación de procesos</h3>
+    
+    <nav>
+        <ul>
+            <li>
+                <button id="Data-page">Home</button>
+            </li>
+            <li>
+                <button id="FCFS">FCFS</button>
+            </li>
+            <li>
+                <button id="SJF">SJF</button>
+            </li>
+            <li>
+                <button id="PRIORIDAD_b">Prioridad</button>
+            </li>
+            <li>
+                <button id="ROUND-ROBIN">Round Robin </button>
+            </li>
+            <li>
+                <button id="Statistics">Estadisticas</button>
+            </li>
+            <li>
+                <button id="clear">Clear</button>
+            </li>
+
+        </ul>
+    </nav>
+
+<div class="container">
+    <div class="content-input" id="contentinput">
+     <div class="content-data">
+        <div class="datainput-group">
+            <label for="name" class="process-name">Nombre de proceso</label>
+            <input type="text" name="name" id="name" class="data" placeholder="Nombre del proceso" required>
+        </div>
+        <div class="datainput-group">
+            <label for="arrivetime" class="process-arrivetime">Tiempo de llegada</label>
+            <input type="number" min="0" max="30" name="arrivetime" id="arrivetime" class="data" placeholder="Tiempo de llegada" required>
+        </div>
+        <div class="datainput-group">
+            <label for="cputime" class="process-cputime">Tiempo de CPU</label>
+            <input type="number" min="0" max="30" name="cputime" id="cputime" class="data" placeholder="Tiempo de cpu" required>
+        </div>
+        <div class="datainput-group">
+            <label for="prioridad" class="prioridad">Prioridad</label>
+            <input type="number" min="1" max="5" name="prioridad" id="prioridad" class="data" placeholder="Prioridad" required>
+        </div>
+        <div class="datainput-group" id="submit">
+            <ul class="databutton">
+                <li>
+                    <button class="addprocess" id="addprocess" type="button">
+                        <p class="addprocess-button">Agregar proceso</p>
+                       </button>
+                </li>
+                <li>
+                    <button class="addprocess" id="Submitrandom" type="button" formnovalidate>
+                        <p class="addprocess-button">Aleatorio</p>
+                    </button>
+                </li>
+            </ul>
+        </div>
+     </div>
+     <div class="content-table">
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>Nombre</td>
+                    <td>Tiempo de llegada</td>
+                    <td>CPU</td>
+                    <td>Prioridad</td>
+                </tr>
+            </thead>
+            <tbody id="t-body">
+                <tr>
+                    <td colspan="3" align="center">Sin datos</td>
+                </tr>
+            </tbody>
+        </table>
+     </div>
+    </div>
+    
+    <div class="resultado" id="contentresult">
+      <div class="summary" id="summary">
+            <table class="table" id="summaryTable">
+                <thead>
+                    <tr>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="tpe" id="tpe">
+                <p id="tpromedio"></p>
+            </div>
+        </div>
+        <div class="gantt" id="dgantt">
+            <canvas class="process" id="gantt"></canvas>
+        </div>
+    </div>
+</div>     
+    <script type="module" src="datainput.js"></script>
+</body>
+</html>

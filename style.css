@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,500;1,500&family=Montserrat:wght@300&display=swap');  
+   
+::-webkit-scrollbar {
+        display: none;
+    }
+    
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    position: absolute;
+    width: 1240px;
+    height: 945px;
+    left: 0px;
+    top: 0px;
+    margin: 0 auto;
+}
+
+main{
+    width: 80%;
+    margin: 0 auto;
+}
+
+h3{
+    text-align: center;
+    font-size: 36px;
+    font-family: 'Montserrat', sans-serif;
+  
+}
+
+.tpe{
+    padding: 10px;
+}
+
+.title{
+    padding: 8px;
+}
+
+nav{
+    display: block;
+    width: 100%;
+}
+
+nav ul{
+    display: flex;
+    justify-content: center;
+}
+
+ul{
+    list-style-type: none;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+li button{
+    cursor: pointer;
+    background-color: #1C1C1C;
+    /* border-color: aliceblue; */
+    border-style: none;
+    color: whitesmoke;
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 8px;
+    padding: 5px;
+    margin: 4px;
+}
+
+.databutton {
+    display: flex;    
+}
+
+.content-data .datainput-group{
+    display: flex;
+    flex-direction: column;
+    margin: 8px 0;
+    justify-content: center;
+}
+
+
+.content-input{
+    display: grid;
+    width:auto;
+    margin: 0 auto;
+    grid-template-columns: 50% 45%;
+    margin: 0 auto;
+    padding: 20px;
+    flex-wrap: wrap;
+    justify-items: center;
+}
+
+.datainput, .content-table{
+    padding: 15px;
+}
+
+input, label{
+    display: block;
+}
+
+label{
+    font-size: 18px;
+    margin: 0 5px;
+    font-family: 'Barlow', sans-serif;
+}
+
+input{  
+    width: 350px;
+    height: 35px;
+    border-radius: 8px;
+    font-size: 16px;  
+    border-color: #1C1C1C;  
+    cursor: text;
+    font-size: 13px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.datainput-group{
+    padding: 10px;
+}
+
+.content-table, .summary{
+    width: 90%;
+    max-width: 600px;
+    margin: 0px auto;
+    padding: 10px;
+    font-family: 'Barlow', sans-serif;
+    font-size: 18px;
+}
+
+table{
+    display: table;
+    border-collapse: collapse;
+}
+
+
+.table{
+    text-align: center;
+    width: 100%;
+    background-color: white;
+    max-height: 268px;
+    overflow: scroll;
+    
+}
+
+thead{ 
+    text-align: center;
+    color: rgb(80, 76, 76);
+}
+
+canvas{
+    display: none;
+    width: 800;
+    height: 400;
+    box-sizing: border-box;
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+
+.process{
+    max-width: 800px;
+    width: 100%;
+    margin: 20px auto;
+}
+
+thead, tbody, td{
+    border-bottom: 1px solid #00000033;
+}
+
+.addprocess{
+    border-radius: 8px;
+    border-color: rgb(72, 110, 192);
+}
+
