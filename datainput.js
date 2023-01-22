@@ -5,7 +5,7 @@ import Chart from "./chart.min.js";
 
 let colorGantt = [
     "rgb(111,168,220)"
-]
+];
 
 let sidebar_button = document.getElementById("sidebar");
 let Agregar = document.getElementById("addprocess");
@@ -18,12 +18,15 @@ let tbody = document.getElementById("t-body");
 let data = [];
 let Processchart = document.getElementById('gantt').getContext('2d');
 
+let home_button = document.getElementById("Home");
 let FCFS_Button = document.getElementById("FCFS");
 let SJF_Button = document.getElementById("SJF");
-let PRIORIDAD_Button = document.getElementById("PRIORIDAD_b");
+let PRIORIDAD_Button = document.getElementById("PRIORIDAD");
 let ROUND_ROBIN_Button = document.getElementById("ROUND-ROBIN"); 
 
 let clear = document.getElementById("clear");
+
+
 let tpe = document.getElementById("tpe");
 
 
@@ -31,9 +34,14 @@ let tpe = document.getElementById("tpe");
 sidebar_button.onclick=()=>{
         sidebar_button.classList.toggle("active");
 }
-
-clear.onclick = ()=>{
+clear.onclick = () =>{
     location.reload();
+} 
+
+home_button.onclick=()=>{
+    document.getElementById("contenttable").style.display ="none";
+    document.getElementById("contentresult").style.display ="none";
+    document.getElementById("contentinput").style.display ="block";
 }
 
 FCFS_Button.onclick =() =>{
