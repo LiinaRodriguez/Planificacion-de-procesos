@@ -7,9 +7,7 @@ let colorGantt = [
     "rgb(111,168,220)"
 ]
 
-
-let prueba = document.getElementById("test");
-
+let sidebar_button = document.getElementById("sidebar");
 let Agregar = document.getElementById("addprocess");
 let AgregarRandom = document.getElementById("Submitrandom");
 let nombre = document.getElementById("name");
@@ -28,6 +26,11 @@ let ROUND_ROBIN_Button = document.getElementById("ROUND-ROBIN");
 let clear = document.getElementById("clear");
 let tpe = document.getElementById("tpe");
 
+
+
+sidebar_button.onclick=()=>{
+        sidebar_button.classList.toggle("active");
+}
 
 clear.onclick = ()=>{
     location.reload();

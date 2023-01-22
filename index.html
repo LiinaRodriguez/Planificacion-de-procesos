@@ -5,40 +5,65 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Simulacion de algoritmos de planificacion de procesos</title>
 </head>
 <body>
-
-    <h3 class="title">Algortimos de planificación de procesos</h3>
+    <div class="side-bar" id="sidebar">
+        <div class="logo-content">
+            <div class="title-logo">Proyecto - Sistemas Operativos </div>
+            <i class='bx bx-menu' id="btn"></i>
+        </div>
     
-    <nav>
         <ul>
             <li>
-                <button id="Data-page">Home</button>
+                <a href="#" >
+                    <i class='bx bx-home-alt-2'></i>
+                    <span class="link-name">Home</span>
+                </a>
+                <span class="tool-tip">Home</span>
             </li>
             <li>
-                <button id="FCFS">FCFS</button>
+                <a href="#" >
+                    <i class='bx bxs-leaf'></i>
+                    <span class="link-name">FCFS</span>
+                </a>
+                <span class="tool-tip">FCFS</span>
             </li>
             <li>
-                <button id="SJF">SJF</button>
+                <a href="#" >
+                    <i class='bx bx-spa'></i>
+                    <span class="link-name">SJF</span>
+                </a>
+                <span class="tool-tip">SJF</span>
             </li>
             <li>
-                <button id="PRIORIDAD_b">Prioridad</button>
+                <a href="#" >
+                    <i class='bx bx-coffee-togo'></i>
+                    <span class="link-name">Prioridad</span>
+                </a>
+                <span class="tool-tip">Prioridad</span>
             </li>
             <li>
-                <button id="ROUND-ROBIN">Round Robin </button>
+                <a href="#" >
+                    <i class='bx bx-loader-circle'></i>
+                    <span class="link-name">Round - Robin</span>
+                </a>
+                <span class="tool-tip">Round-Robin</span>
             </li>
             <li>
-                <button id="Statistics">Estadisticas</button>
+                <a href="#" >
+                    <i class='bx bx-pie-chart-alt-2'></i>
+                    <span class="link-name">Estadisticas</span>
+                </a>
+                <span class="tool-tip">Estadisticas</span>
             </li>
-            <li>
-                <button id="clear">Clear</button>
-            </li>
-
         </ul>
-    </nav>
+    </div>
 
 <div class="container">
+    <h3 class="title">Algortimos de planificación de procesos</h3>
+    
     <div class="content-input" id="contentinput">
      <div class="content-data">
         <div class="datainput-group">
