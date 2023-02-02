@@ -16,6 +16,7 @@ class FCFS{
                 if (tiempo == element.tiempoLlegada) {
                     element.id = index; 
                     element.tiempoUsado = 0; 
+                    element.Entradas = 0;
                     element.tiempoEspera = 0; 
                     this.colaProcesos.push(element);   
                     //Pone los elementos de la tabla en la cola de procesos
@@ -24,7 +25,10 @@ class FCFS{
 
             if(this.Ejecucion == null && this.colaProcesos.length!=0){
                 this.Ejecucion = this.colaProcesos.shift(); //Sacamos de la cola y lo introducimos la cola de ejecución
-                this.Ejecucion.tiempoComienzo = tiempo;
+                this.Ejecucion.Entradas +=1;
+                if(this.Ejecucion.Entradas == 1){
+                    this.Ejecucion.tiempoComienzo = tiempo;
+                }
             }
             tiempo++;
 
@@ -61,7 +65,6 @@ class FCFS{
     }
 
     exportChart() {
-        //Convertimos esos datos en objeto para pasarlos al grafico
         let dat = [],
             nombres = this.returnNombres();
         this.data.forEach((element, index) => {

@@ -1,0 +1,3 @@
+- diagrama de componentes UML (Estadisticas); 
+- expropiativos (SJF - PRIORIDAD) 
+- 

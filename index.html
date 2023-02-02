@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="side-bar" id="sidebar">
-        <div class="logo-content">
+        <div class="logo-content" id="sidebar-active">
             <div class="title-logo">Proyecto - Sistemas Operativos </div>
             <i class='bx bx-menu' id="btn"></i>
         </div>
@@ -45,14 +45,21 @@
                 <span class="tool-tip">Prioridad</span>
             </li>
             <li>
-                <a href="#" id="ROUND-ROBIN">
+                <a href="#" id="ROUNDROBIN">
                     <i class='bx bx-loader-circle'></i>
                     <span class="link-name">Round - Robin</span>
                 </a>
                 <span class="tool-tip">Round-Robin</span>
             </li>
             <li>
-                <a href="#" >
+                <a href="#" id="SRTF">
+                    <i class='bx bx-objects-horizontal-center'></i>
+                    <span class="link-name">SRTF</span>
+                </a>
+                <span class="tool-tip">SRTF</span>
+            </li>
+            <li>
+                <a href="#" id="estadisticas">
                     <i class='bx bx-pie-chart-alt-2'></i>
                     <span class="link-name">Estadisticas</span>
                 </a>
@@ -62,9 +69,13 @@
     </div>
 
 <div class="container">
-    <h3 class="title">Algortimos de planificación de procesos</h3>
-    <button id="clear" type="button">Clear</button>
-
+    <h3 class="title">Algoritmos de planificación de procesos</h3>
+    <ul>
+        <li>
+            <button id="clear" type="button">Clear</button>
+        </li>
+    </ul>
+    
     <div class="content-input" id="contentinput">
      <div class="content-data">
         <div class="datainput-group">
@@ -81,7 +92,13 @@
         </div>
         <div class="datainput-group">
             <label for="prioridad" class="prioridad">Prioridad</label>
-            <input type="number" min="1" max="5" name="prioridad" id="prioridad" class="data" placeholder="Prioridad" required>
+            <input type="number" min="1" max="8" name="prioridad" id="prioridad" class="data" placeholder="Prioridad" required>
+        </div>
+        <div class="datainput-group quantuminput">
+            <label>Quantum</label>
+            <div class="numberpicker">
+                <input type="number" id="quantum"  min="1" max="8">
+            </div>
         </div>
         <div class="datainput-group" id="submit">
             <ul class="databutton">
@@ -145,5 +162,6 @@
     </div>
 </div>     
     <script type="module" src="datainput.js"></script>
+   
 </body>
 </html>

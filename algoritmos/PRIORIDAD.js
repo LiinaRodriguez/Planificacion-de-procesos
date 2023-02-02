@@ -17,6 +17,7 @@ class PRIORIDAD{
                     element.id = index;
                     element.posicion = index;
                     element.tiempoUsado = 0;
+                    element.Entradas = 0;
                     element.tiempoEspera = 0;
                     this.colaProcesos.push(element);
                 }

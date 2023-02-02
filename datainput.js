@@ -1,6 +1,8 @@
 import FCFS from "./algoritmos/FCFS.js";
 import SJF from "./algoritmos/SJF.js";
 import PRIORIDAD from "./algoritmos/PRIORIDAD.js";
+import ROUNDROBIN from "./algoritmos/ROUNDROBIN.js";
+import SRTF from "./algoritmos/SRTF.js";
 import Chart from "./chart.min.js";
 
 let colorGantt = [
@@ -22,18 +24,13 @@ let home_button = document.getElementById("Home");
 let FCFS_Button = document.getElementById("FCFS");
 let SJF_Button = document.getElementById("SJF");
 let PRIORIDAD_Button = document.getElementById("PRIORIDAD");
-let ROUND_ROBIN_Button = document.getElementById("ROUND-ROBIN"); 
+let ROUND_ROBIN_Button = document.getElementById("ROUNDROBIN"); 
+let SRTF_Button = document.getElementById("SRTF");
 
 let clear = document.getElementById("clear");
-
-
 let tpe = document.getElementById("tpe");
+let quantum = 4;
 
-
-
-sidebar_button.onclick=()=>{
-        sidebar_button.classList.toggle("active");
-}
 clear.onclick = () =>{
     location.reload();
 } 
@@ -41,7 +38,6 @@ clear.onclick = () =>{
 home_button.onclick=()=>{
     document.getElementById("contenttable").style.display ="none";
     document.getElementById("contentresult").style.display ="none";
-    document.getElementById("contentinput").style.display ="block";
 }
 
 FCFS_Button.onclick =() =>{
@@ -55,7 +51,6 @@ FCFS_Button.onclick =() =>{
     diagramadeGantt.update();
     CrearTablaResumen(fcfs.data);
     tiempopromedio(fcfs.data);
-    document.getElementById("contentinput").style.display ="none";
     }
 }
 
@@ -80,11 +75,10 @@ PRIORIDAD_Button.onclick =() =>{
     }else{
         Ordenar();
         let prioridad = new PRIORIDAD(data, colorGantt);
-        alert("Hi :)");
         let Resultados = prioridad.Resultados();
         diagramadeGantt.data = Resultados;
         diagramadeGantt.update();
-        CrearTablaResumen()
+        CrearTablaResumen();
         tiempopromedio(prioridad.data);
     }
 }
@@ -94,7 +88,7 @@ ROUND_ROBIN_Button.onclick =() =>{
         alert("No hay procesos en la tabla");
     }else{
         Ordenar();
-        let round_robin = new ROUND-ROBIN(data, colorGantt);
+        let round_robin = new ROUNDROBIN(data, colorGantt, quantum);    
         let Resultados = round_robin.Resultados();
         diagramadeGantt.data = Resultados;
         diagramadeGantt.update();
@@ -103,8 +97,21 @@ ROUND_ROBIN_Button.onclick =() =>{
     }
 }
 
-Agregar.onclick = () =>{
+SRTF_Button.onclick =() =>{
+    if(data.length == 0){
+        alert("no hay procesos en la tabla");  
+    }else{
+        Ordenar();
+        let srtf = new SRTF(data, colorGantt);
+        let Resultados = srtf.Resultados();
+        diagramadeGantt.data = Resultados;
+        diagramadeGantt.update();
+        CrearTablaResumen();
+        tiempopromedio(srtf.data); 
+    }
+}
 
+Agregar.onclick = () =>{
     if(validarCampos() && data.length<10 ){
         data[data.length] = {
             nombre: nombre.value,
@@ -144,7 +151,7 @@ AgregarRandom.onclick = () =>{
 function CrearTablaProcesos(){
     tbody.innerHTML = "";
     data.forEach(element=>  {
-        tbody.innerHTML += "<tr><td>" + element.nombre + "</td><td>"
+        tbody.innerHTML += "<tr><td>" + element.nombre + "</td><td>" 
          + element.tiempoLlegada + "</td><td>" + element.tiempoCpu + "</td><td>"
          + element.prioridad+"</td></tr>";
     })
