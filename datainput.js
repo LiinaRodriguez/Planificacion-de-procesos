@@ -31,13 +31,8 @@ let clear = document.getElementById("clear");
 let tpe = document.getElementById("tpe");
 let tretorno = document.getElementById("tretorno");
 let usoCpu = document.getElementById("usoCpu");
+let rend = document.getElementById("rend");
 
-/**Arrays de las estadisticas, cada dataset contine los tiempos de retorno, rendimiento, etc de cada algo*/
-let datasetFCFS = [];
-let datasetSJF = [];
-let datasetPRIORIDAD = [];
-let datasetRR = [];
-let datasetSRTF = [];
 
 clear.onclick = () =>{
     location.reload();
@@ -49,13 +44,17 @@ FCFS_Button.onclick =() =>{
     if(data.length == 0){
         alert("No hay procesos");
     }else{
-    Ordenar();
-    let fcfs = new FCFS(data, colorGantt);
-    let Resultados = fcfs.Resultados();
-    diagramadeGantt.data = Resultados;
-    diagramadeGantt.update();
-    CrearTablaResumen(fcfs.data);
-    tiempopromedio(fcfs.data);
+        Ordenar();
+        let fcfs = new FCFS(data, colorGantt);
+        let Resultados = fcfs.Resultados();
+        diagramadeGantt.data = Resultados;
+        diagramadeGantt.update();
+        CrearTablaResumen(fcfs.data);
+        tiempopromedio(fcfs.data);
+        tiempoRetorno(fcfs.data);
+        utilizacionCpu(fcfs.data);
+        rendimiento(fcfs.data);
+        tabalEstadisticas();
     }
 }
 
@@ -70,6 +69,10 @@ SJF_Button.onclick =() =>{
         diagramadeGantt.update();
         CrearTablaResumen();
         tiempopromedio(sjf.data);
+        tiempoRetorno(sjf.data);
+        utilizacionCpu(sjf.data);
+        rendimiento(sjf.data);
+        tabalEstadisticas();
         
     }
 } 
@@ -87,6 +90,9 @@ PRIORIDAD_Button.onclick =() =>{
         tiempopromedio(prioridad.data);
         tiempoRetorno(prioridad.data);
         utilizacionCpu(prioridad.data);
+        rendimiento(prioridad.data);
+        tabalEstadisticas();
+
     }
 }
 
@@ -105,6 +111,9 @@ ROUND_ROBIN_Button.onclick = () => {
         tiempopromedio(round_robin.data);
         tiempoRetorno(round_robin.data);
         utilizacionCpu(round_robin.data);
+        rendimiento(round_robin.data);
+        tabalEstadisticas();
+
     }
 }
 
@@ -121,6 +130,9 @@ SRTF_Button.onclick =() =>{
         tiempopromedio(srtf.data); 
         tiempoRetorno(srtf.data);
         utilizacionCpu(srtf.data);
+        rendimiento(srtf.data);
+        tabalEstadisticas();
+
     }
 }
 
@@ -259,11 +271,25 @@ const tiempopromedio = () =>{
     tiempopromedio = tiempopromedio/data.length;
     tpe = tiempopromedio.toFixed(2);
 
-    document.getElementById("tpromedio").innerHTML = "<p>Tiempo promedio de espera: " + tpe +" ms</p>";
+    //document.getElementById("tpromedio").innerHTML = "<p>Tiempo promedio de espera: " + tpe +" ms</p>";
 }
 
 const rendimiento = () => {
-    
+    let rendimiento = 0;
+    let maximo = 0;
+
+    for (let i = 0; i < data.length; i++) {
+        if (data[i].tiempoFin > maximo) {
+            maximo = data[i].tiempoFin;
+         }
+    }
+
+    rendimiento = maximo / data.length;
+    console.log(rendimiento);
+    rend = rendimiento.toFixed(2);
+    //document.getElementById("rend").innerHTML = "<p>Rendimiento: " + rend +" p/ms</p>";
+
+
 }
 
 const utilizacionCpu = () => {
@@ -287,7 +313,7 @@ const utilizacionCpu = () => {
     usoCpu = (utilizacionCpu * 100) / maximo;
     usoCpu = usoCpu.toFixed(2);
     console.log(usoCpu);
-    document.getElementById("usocpu").innerHTML = "<p>Utilizacion de la cpu: " + usoCpu +" %</p>";
+    //document.getElementById("usocpu").innerHTML = "<p>Utilizacion de la cpu: " + usoCpu +" %</p>";
 
 }
 
@@ -299,9 +325,21 @@ const tiempoRetorno = () => {
     tiempoRetorno = tiempoRetorno / data.length;
     tretorno = tiempoRetorno.toFixed(2);
 
-    document.getElementById("tretorn").innerHTML = "<p>Tiempo promedio de retorno: " + tretorno +" ms</p>";
+    //document.getElementById("tretorn").innerHTML = "<p>Tiempo promedio de retorno: " + tretorno +" ms</p>";
     
 
 }
 
+
+function tabalEstadisticas() {
+    let thead = "<thead><tr><th>Tiempo de espera</th><th>Rendimiento</th><th>Utilizacion de CPU</th>"+
+        "<th>Tiempo Retorno</th></tr></thead>";
+        let tbody = "<tbody>"
+        tbody += "<tr><td>" + tpe + "</td>";
+        tbody += "<td>" + rend + "</td>";
+        tbody += "<td>" + usoCpu + "</td>";
+        tbody += "<td>" + tretorno + "</td></tr>";
+    
+    document.getElementById("statstable").innerHTML = thead + tbody;
+}
 
