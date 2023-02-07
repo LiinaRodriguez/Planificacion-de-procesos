@@ -29,16 +29,21 @@ let SRTF_Button = document.getElementById("SRTF");
 
 let clear = document.getElementById("clear");
 let tpe = document.getElementById("tpe");
-let quantum = 4;
+let tretorno = document.getElementById("tretorno");
+let usoCpu = document.getElementById("usoCpu");
+
+/**Arrays de las estadisticas, cada dataset contine los tiempos de retorno, rendimiento, etc de cada algo*/
+let datasetFCFS = [];
+let datasetSJF = [];
+let datasetPRIORIDAD = [];
+let datasetRR = [];
+let datasetSRTF = [];
 
 clear.onclick = () =>{
     location.reload();
 } 
 
-home_button.onclick=()=>{
-    document.getElementById("contenttable").style.display ="none";
-    document.getElementById("contentresult").style.display ="none";
-}
+
 
 FCFS_Button.onclick =() =>{
     if(data.length == 0){
@@ -65,7 +70,7 @@ SJF_Button.onclick =() =>{
         diagramadeGantt.update();
         CrearTablaResumen();
         tiempopromedio(sjf.data);
-        document.getElementById("contentinput").style.display ="none";
+        
     }
 } 
 
@@ -80,10 +85,14 @@ PRIORIDAD_Button.onclick =() =>{
         diagramadeGantt.update();
         CrearTablaResumen();
         tiempopromedio(prioridad.data);
+        tiempoRetorno(prioridad.data);
+        utilizacionCpu(prioridad.data);
     }
 }
 
-ROUND_ROBIN_Button.onclick =() =>{
+ROUND_ROBIN_Button.onclick = () => {
+    let quantum = prompt("Digita el valor del quantum");
+    
     if(data.length == 0){
         alert("No hay procesos en la tabla");
     }else{
@@ -94,6 +103,8 @@ ROUND_ROBIN_Button.onclick =() =>{
         diagramadeGantt.update();
         CrearTablaResumen();
         tiempopromedio(round_robin.data);
+        tiempoRetorno(round_robin.data);
+        utilizacionCpu(round_robin.data);
     }
 }
 
@@ -108,6 +119,8 @@ SRTF_Button.onclick =() =>{
         diagramadeGantt.update();
         CrearTablaResumen();
         tiempopromedio(srtf.data); 
+        tiempoRetorno(srtf.data);
+        utilizacionCpu(srtf.data);
     }
 }
 
@@ -248,3 +261,47 @@ const tiempopromedio = () =>{
 
     document.getElementById("tpromedio").innerHTML = "<p>Tiempo promedio de espera: " + tpe +" ms</p>";
 }
+
+const rendimiento = () => {
+    
+}
+
+const utilizacionCpu = () => {
+    let utilizacionCpu = 0;
+    data.forEach(element => {
+        utilizacionCpu += element.tiempoCpu;
+        console.log(utilizacionCpu);
+    });
+
+    let tiempoProcesos = 0; 
+    let maximo = 0;
+
+    for (let i = 0; i < data.length; i++) {
+        if (data[i].tiempoFin > maximo) {
+            maximo = data[i].tiempoFin;
+         }
+    }
+
+    console.log(maximo);
+    console.log(utilizacionCpu);
+    usoCpu = (utilizacionCpu * 100) / maximo;
+    usoCpu = usoCpu.toFixed(2);
+    console.log(usoCpu);
+    document.getElementById("usocpu").innerHTML = "<p>Utilizacion de la cpu: " + usoCpu +" %</p>";
+
+}
+
+const tiempoRetorno = () => {
+    let tiempoRetorno = 0;
+    data.forEach(element => {
+        tiempoRetorno = element.tiempoFin - element.tiempoComienzo;
+    });
+    tiempoRetorno = tiempoRetorno / data.length;
+    tretorno = tiempoRetorno.toFixed(2);
+
+    document.getElementById("tretorn").innerHTML = "<p>Tiempo promedio de retorno: " + tretorno +" ms</p>";
+    
+
+}
+
+

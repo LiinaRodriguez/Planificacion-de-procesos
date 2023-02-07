@@ -11,7 +11,7 @@
     box-sizing: border-box;
 }
 
-body{
+/*body{
     position: absolute;
     width: 1240px;
     height: 945px;
@@ -33,7 +33,7 @@ main{
     left: 78px;
     transition: all 0.5s ease;
 
-}
+}*/
 
 h3{
     text-align: center;
@@ -42,9 +42,6 @@ h3{
   
 }
 
-.tpe{
-    padding: 10px;
-}
 
 .title{
     padding: 8px;
@@ -218,6 +215,7 @@ thead, tbody, td{
     font-size: 20px;
     font-weight: 400;
 }
+/**
 
 .side-bar #btn{
     position: absolute;
@@ -311,20 +309,5 @@ thead, tbody, td{
  width: calc(100% - 240px);
  left: 240px;
 }
+*/
 
-#quantum{
-    width: 70px;
-    padding: 0;
-    margin: 0;
-    font-size: 25px;
-    color: #444;
-    text-align: center;
-   
-}
-
-.numberpicker{
-    position: relative;
-    width: 3px;
-    display: flex;
-    height: 30px;
-}

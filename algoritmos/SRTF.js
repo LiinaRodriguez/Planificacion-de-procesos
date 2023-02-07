@@ -116,7 +116,7 @@ class SRTF {
         console.log(dat);
 
         let objet = {
-            nombres: nombres,
+            labels: nombres,
             datasets: []
         }
         for (let i = 0; i < Entradas; i++) {

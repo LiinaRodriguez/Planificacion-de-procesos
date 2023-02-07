@@ -5,77 +5,58 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Simulacion de algoritmos de planificacion de procesos</title>
 </head>
 <body>
-    <div class="side-bar" id="sidebar">
-        <div class="logo-content" id="sidebar-active">
-            <div class="title-logo">Proyecto - Sistemas Operativos </div>
-            <i class='bx bx-menu' id="btn"></i>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Sistemas Operativos</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="" id="Home">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#contentresult" id="FCFS">FCFS</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#contentresult" id="SJF">SJF</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#contentresult" id="PRIORIDAD">Prioridad</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#contentresult" id="ROUNDROBIN">Round Robin</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#contentresult" id="SRTF">SRTF</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#" id="clear">Clear</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#estadisticas" id="stat">Estadisticas</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav flex-row flex-wrap ms-md-auto">
+                <li class="nav-item col-6 col-md-auto">
+                    <a class="nav-link p-2" href="https://github.com/LiinaRodriguez/Planificacion-de-procesos" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" class="navbar-nav-svg d-inline-block align-text-top" viewBox="0 0 512 499.36" role="img"><title>GitHub</title><path fill="currentColor" fill-rule="evenodd" d="M256 0C114.64 0 0 114.61 0 256c0 113.09 73.34 209 175.08 242.9 12.8 2.35 17.47-5.56 17.47-12.34 0-6.08-.22-22.18-.35-43.54-71.2 15.49-86.2-34.34-86.2-34.34-11.64-29.57-28.42-37.45-28.42-37.45-23.27-15.84 1.73-15.55 1.73-15.55 25.69 1.81 39.21 26.38 39.21 26.38 22.84 39.12 59.92 27.82 74.5 21.27 2.33-16.54 8.94-27.82 16.25-34.22-56.84-6.43-116.6-28.43-116.6-126.49 0-27.95 10-50.8 26.35-68.69-2.63-6.48-11.42-32.5 2.51-67.75 0 0 21.49-6.88 70.4 26.24a242.65 242.65 0 0 1 128.18 0c48.87-33.13 70.33-26.24 70.33-26.24 14 35.25 5.18 61.27 2.55 67.75 16.41 17.9 26.31 40.75 26.31 68.69 0 98.35-59.85 120-116.88 126.32 9.19 7.9 17.38 23.53 17.38 47.41 0 34.22-.31 61.83-.31 70.23 0 6.85 4.61 14.81 17.6 12.31C438.72 464.97 512 369.08 512 256.02 512 114.62 397.37 0 256 0z"/></svg>
+                        <small class="d-md-none ms-2">GitHub</small>
+                    </a>
+                </li>
+            </ul>
+          </div>
         </div>
-    
-        <ul>
-            <li>
-                <a href="#" id="Home">
-                    <i class='bx bx-home-alt-2'></i>
-                    <span class="link-name">Home</span>
-                </a>
-                <span class="tool-tip">Home</span>
-            </li>
-            <li>
-                <a href="#" id="FCFS">
-                    <i class='bx bxs-leaf'></i>
-                    <span class="link-name">FCFS</span>
-                </a>
-                <span class="tool-tip">FCFS</span>
-            </li>
-            <li>
-                <a href="#" id="SJF">
-                    <i class='bx bx-spa'></i>
-                    <span class="link-name">SJF</span>
-                </a>
-                <span class="tool-tip">SJF</span>
-            </li>
-            <li>
-                <a href="#" id="PRIORIDAD">
-                    <i class='bx bx-coffee-togo'></i>
-                    <span class="link-name">Prioridad</span>
-                </a>
-                <span class="tool-tip">Prioridad</span>
-            </li>
-            <li>
-                <a href="#" id="ROUNDROBIN">
-                    <i class='bx bx-loader-circle'></i>
-                    <span class="link-name">Round - Robin</span>
-                </a>
-                <span class="tool-tip">Round-Robin</span>
-            </li>
-            <li>
-                <a href="#" id="SRTF">
-                    <i class='bx bx-objects-horizontal-center'></i>
-                    <span class="link-name">SRTF</span>
-                </a>
-                <span class="tool-tip">SRTF</span>
-            </li>
-            <li>
-                <a href="#" id="estadisticas">
-                    <i class='bx bx-pie-chart-alt-2'></i>
-                    <span class="link-name">Estadisticas</span>
-                </a>
-                <span class="tool-tip">Estadisticas</span>
-            </li>
-        </ul>
-    </div>
+      </nav>
 
-<div class="container">
-    <h3 class="title">Algoritmos de planificación de procesos</h3>
-    <ul>
-        <li>
-            <button id="clear" type="button">Clear</button>
-        </li>
-    </ul>
-    
+<div class="container mt-5">
     <div class="content-input" id="contentinput">
      <div class="content-data">
         <div class="datainput-group">
@@ -94,35 +75,30 @@
             <label for="prioridad" class="prioridad">Prioridad</label>
             <input type="number" min="1" max="8" name="prioridad" id="prioridad" class="data" placeholder="Prioridad" required>
         </div>
-        <div class="datainput-group quantuminput">
-            <label>Quantum</label>
-            <div class="numberpicker">
-                <input type="number" id="quantum"  min="1" max="8">
-            </div>
-        </div>
+        
         <div class="datainput-group" id="submit">
             <ul class="databutton">
                 <li>
-                    <button class="addprocess" id="addprocess" type="button">
-                        <p class="addprocess-button">Agregar proceso</p>
+                    <button class="addprocess btn btn-dark" id="addprocess" type="button">
+                        Agregar proceso
                        </button>
                 </li>
                 <li>
-                    <button class="addprocess" id="Submitrandom" type="button" formnovalidate>
-                        <p class="addprocess-button">Aleatorio</p>
+                    <button class="addprocess btn btn-dark" id="Submitrandom" type="button" formnovalidate>
+                        Aleatorio
                     </button>
                 </li>
             </ul>
         </div>
      </div>
      <div class="content-table">
-        <table class="table">
+        <table class="table table-hover">
             <thead>
                 <tr>
-                    <td>Nombre</td>
-                    <td>Tiempo de llegada</td>
-                    <td>CPU</td>
-                    <td>Prioridad</td>
+                    <td scope="col">Nombre</td>
+                    <td scope="col">Tiempo de llegada</td>
+                    <td scope="col">CPU</td>
+                    <td scope="col">Prioridad</td>
                 </tr>
             </thead>
             <tbody id="t-body">
@@ -135,6 +111,7 @@
     </div>
     
     <div class="resultado" id="contentresult">
+        <h1>Diagrama de gantt</h1>
       <div class="summary" id="summary">
             <table class="table" id="summaryTable">
                 <thead>
@@ -152,16 +129,31 @@
                     </tr>
                 </tbody>
             </table>
-            <div class="tpe" id="tpe">
-                <p id="tpromedio"></p>
-            </div>
         </div>
         <div class="gantt" id="dgantt">
             <canvas class="process" id="gantt"></canvas>
         </div>
     </div>
+    <div class="estadisticas" id="estadisticas">
+        <h1>Criterios de planificación</h1>
+        <div class="usoCpu" id="usocpu">
+            <p id="usoCpu"></p>
+        </div>
+        <div class="rendimiento">
+            <p id="rendimiento"></p>
+        </div>
+        <div class="tretorno" id="tretorn">
+            <p id="tretorno"></p>
+        </div>
+        <div class="tpe" id="tpe">
+            <p id="tpromedio"></p>
+        </div>
+        <div class="tpr">
+            <p id="trespuesta"></p>
+        </div>
+    </div>
 </div>     
     <script type="module" src="datainput.js"></script>
-   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
