@@ -1,3 +1,3 @@
 # Planificacion-de-procesos
-🎯 ##Demo
+🎯 # Demo
 https://planificacion-de-procesos.netlify.app/#
